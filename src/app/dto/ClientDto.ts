@@ -1,18 +1,26 @@
 export class ClientDto {
 
-    public username: string = "";;
+    public username: string = "";
 
-    public password: string = "";;
+    public password: string = "";
 
-    public name: string = "";;
+    public name: string = "";
 
-    public address: string = "";;
+    public address: string = "";
 
-    public email: string = "";;
+    public country: string = "";
 
-    public mobileNumber: string = "";;
+    public state: string = "";
 
-    public loanAccountNumber: string = "";;
+    public city: string = "";
 
-    public loanInformation: string = "";;
+    public province: string = "";
+
+    public email: string = "";
+
+    public mobileNumber: string = "";
+
+    public loanAccountNumber: string = "";
+
+    public loanInformation: string = "";
 }
