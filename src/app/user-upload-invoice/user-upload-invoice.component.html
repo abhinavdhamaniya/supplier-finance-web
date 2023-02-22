@@ -1,1 +1,109 @@
-<p>user-upload-invoice works!</p>
+<html>
+
+<body>
+
+    <div class="row">
+        <div class="col-sm-6 offset-md-3">
+            <div class="card my-4">
+                <div class="card-body">
+                    <h5 class="card-title">Upload Invoice</h5>
+                    <p class="card-text">Uplaod an invoice as a client.</p>
+                    <div class="alert alert-danger" role="alert" *ngIf='errorMessage'>
+                        {{errorMessage}}
+                    </div>
+                    <div class="alert alert-success" role="alert" *ngIf='sucessMessage'>
+                        {{sucessMessage | json}}
+                    </div>
+                    <form #uploadInvoiceForm="ngForm" (ngSubmit)="onClickSubmit(uploadInvoiceForm)">
+                        <div class="form-group row py-1">
+                            <div class="col">
+                                <label for="invoiceId">Invoice Id (Unique)</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="invoiceId"
+                                    placeholder="Enter a invoice Id" ngModel>
+                            </div>
+                        </div>
+                        <div class="form-group row py-1">
+                            <div class="col">
+                                <label for="clientUsername">Client Username</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="clientUsername" readonly [value]="loggedInUser">
+                            </div>
+                        </div>
+                        <div class="form-group row py-1">
+                            <div class="col">
+                                <label for="supplierCode">Supplier Code</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="supplierCode"
+                                    placeholder="Enter Supplier Code" ngModel>
+                            </div>
+                        </div>
+                        <div class="form-group row py-1">
+                            <div class="col">
+                                <label for="invoiceNumber">Invoice Number (Unique)</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="invoiceNumber"
+                                    placeholder="Enter invoice number" ngModel>
+                            </div>
+                        </div>
+                        <div class="form-group row py-1">
+                            <div class="col">
+                                <label for="invoiceDate">Invoice Date</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="invoiceDate"
+                                    placeholder="Enter Invoice Date" ngModel>
+                            </div>
+                        </div>
+                        <div class="form-group row py-1">
+                            <div class="col">
+                                <label for="invoiceAmount">Invoice Amount</label>
+                            </div>
+                            <div class="col">
+                                <input type="number" class="form-control" name="invoiceAmount"
+                                    placeholder="Enter Invoice Amount" ngModel>
+                            </div>
+                        </div>
+                        <div class="form-group row py-1">
+                            <div class="col">
+                                <label for="currency">Currency</label>
+                            </div>
+                            <div class="col">
+                                <select id="invoiceCurrency" name="invoiceCurrency" (click)="setCurrency($event)">
+                                    <option value="USD">USD</option>
+                                    <option value="GBP">GBP</option>
+                                    <option value="Euro">Euro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row py-1">
+                            <div class="col">
+                                <label for="status">Status</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="status" [value]="invoiceStatus">
+                            </div>
+                        </div>
+                        <div class="form-group row py-1">
+                            <div class="col">
+                                <label for="invoiceFile">Invoice File</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="invoiceFile"
+                                    placeholder="Enter Invoice File" ngModel>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary py-1 mt-2">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
