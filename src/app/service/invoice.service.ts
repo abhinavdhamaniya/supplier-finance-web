@@ -16,8 +16,16 @@ export class InvoiceService {
         return this.http.post<InvoiceDto>(this.rootUrl + '/save', invoice);
     }
 
+    public getInvoiceById(id: string): Observable<InvoiceDto[]> {
+        return this.http.get<InvoiceDto[]>(this.rootUrl + '/' + id);
+    }
+
     public getAllInvoicesByClientUsername(clientUsername: string): Observable<InvoiceDto[]> {
         return this.http.get<InvoiceDto[]>(this.rootUrl + '/clientUsername/' + clientUsername);
+    }
+
+    public getAllInvoicesBySupplierCode(supplierCode: string): Observable<InvoiceDto[]> {
+        return this.http.get<InvoiceDto[]>(this.rootUrl + '/supplierCode/' + supplierCode);
     }
 
     public getAllInvoices(): Observable<InvoiceDto[]> {

@@ -7,7 +7,21 @@
                 <div class="card-body">
                     <h5 class="card-title">Invoice List</h5>
                     <p class="card-text">Here is the list of all invoices: </p>
-                    <table class="table table-bordered">
+                    <div class="card-text row">
+                        <div class="col">
+                            Filter by:
+                            <select id="province" name="province" (click)="setFilter($event)">
+                                <option value="CLIENT_USER_NAME">Client user name</option>
+                                <option value="SUPPLIER_CODE">Supplier Code</option>
+                                <option value="INVOICE_ID">Invoice Id</option>
+                            </select>
+                        </div>
+                        <div class="col-9" style="display:flex; flex-direction: row; justify-content: left; align-items: left">
+                            <input type="text" class="form-control w-50" name="filterValue" placeholder="Enter value" [(ngModel)]="filterValue">
+                            <button type="submit" class="btn btn-primary mx-2" (click)="doFilter()">Submit</button>
+                        </div>
+                    </div>
+                    <table class="table table-bordered mt-4">
                         <thead>
                             <tr>
                                 <th>Invoice Id</th>
@@ -44,4 +58,3 @@
 </body>
 
 </html>
-

@@ -17,14 +17,13 @@ export class ClientViewInvoiceComponent implements OnInit {
   constructor(private invoiceService: InvoiceService) { }
 
   ngOnInit(): void {
-
     setInterval(() => {
       this.loggedInUser = localStorage.getItem('LOGGED_IN_USER_ID')!;
-      this.sub = this.invoiceService.getAllInvoicesByClientUsername(this.loggedInUser).subscribe({
-        next: (response: InvoiceDto[]) => {
-          this.invoices = response;
-        }
-      });
     }, 1);
+    this.sub = this.invoiceService.getAllInvoicesByClientUsername(this.loggedInUser).subscribe({
+      next: (response: InvoiceDto[]) => {
+        this.invoices = response;
+      }
+    });
   }
 }

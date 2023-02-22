@@ -24,23 +24,21 @@ export class UserHomepageComponent implements OnInit {
   ngOnInit(): void {
     setInterval(() => {
       this.loggedInUser = localStorage.getItem('LOGGED_IN_USER_ID')!;
-      this.loggedInUserType = localStorage.getItem('LOGGED_IN_USER_TYPE')!;
-
-      if(this.loggedInUserType == 'CLIENT') {
-        this.sub = this.clientService.getClientByUsername(this.loggedInUser).subscribe({
-          next: (response: any) => {
-            this.client = response;
-          }
-        });
-      } else {
-        this.sub = this.supplierService.getSupplierByCode(this.loggedInUser).subscribe({
-          next: (response: any) => {
-            this.supplier = response;
-          }
-        });
-      }
-      
+      this.loggedInUserType = localStorage.getItem('LOGGED_IN_USER_TYPE')!;    
     }, 1);
+    if(this.loggedInUserType == 'CLIENT') {
+      this.sub = this.clientService.getClientByUsername(this.loggedInUser).subscribe({
+        next: (response: any) => {
+          this.client = response;
+        }
+      });
+    } else {
+      this.sub = this.supplierService.getSupplierByCode(this.loggedInUser).subscribe({
+        next: (response: any) => {
+          this.supplier = response;
+        }
+      });
+    }
   }
 
 }
