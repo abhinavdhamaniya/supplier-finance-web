@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserHomepageComponent } from './user-homepage/user-homepage.component';
 import { UserViewAllClientsComponent } from './user-view-all-clients/user-view-all-clients.component';
 import { UserViewAllSuppliersComponent } from './user-view-all-suppliers/user-view-all-suppliers.component';
+import { UserUploadInvoiceComponent } from './user-upload-invoice/user-upload-invoice.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UserViewAllSuppliersComponent } from './user-view-all-suppliers/user-vi
     UserLoginComponent,
     UserHomepageComponent,
     UserViewAllClientsComponent,
-    UserViewAllSuppliersComponent
+    UserViewAllSuppliersComponent,
+    UserUploadInvoiceComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { UserViewAllSuppliersComponent } from './user-view-all-suppliers/user-vi
       { path: 'user-login', component: UserLoginComponent },
       { path: 'user-homepage', component: UserHomepageComponent },
       { path: 'user-view-all-clients', component: UserViewAllClientsComponent },
-      { path: 'user-view-all-suppliers', component: UserViewAllSuppliersComponent }
+      { path: 'user-view-all-suppliers', component: UserViewAllSuppliersComponent },
+      { path: 'user-upload-invoice', component: UserUploadInvoiceComponent }
     ]),
     NgbModule
   ],

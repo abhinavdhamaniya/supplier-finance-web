@@ -19,6 +19,7 @@
 
         <ul class="navbar-nav"  *ngIf="loggedInUserType=='CLIENT' || loggedInUserType=='SUPPLIER'">
           <li><a class='nav-link' routerLinkActive='active' routerLink='user-homepage'>Welcome {{ loggedInUser }}</a></li>
+          <li *ngIf="loggedInUserType=='CLIENT'"><a class='nav-link' routerLinkActive='active' routerLink='user-upload-invoice'>Upload Invoice</a></li>
           <li><a class='nav-link' routerLinkActive='active' routerLink='user-view-all-clients'>Clients</a></li>
           <li><a class='nav-link' routerLinkActive='active' routerLink='user-view-all-suppliers'>Suppliers</a></li>
           <li><a class='nav-link' href="#" (click)='logout()'>Logout</a></li>
