@@ -32,7 +32,7 @@
             <form #createClientForm="ngForm" (ngSubmit)="onClickSubmit(createClientForm)">
               <div class="form-group row py-1">
                 <div class="col">
-                  <label for="username">User Name (Unique)</label>
+                  <label for="username">Username (Unique)</label>
                 </div>
                 <div class="col">
                   <input type="text" class="form-control" name="username" placeholder="Enter a unique user name"
@@ -161,7 +161,7 @@
             <div class="alert alert-success" role="alert" *ngIf='sucessMessage'>
               {{sucessMessage | json}}
             </div>
-            <form #createClientForm="ngForm" (ngSubmit)="onClickSubmit(createClientForm)">
+            <form #createSupplierForm="ngForm" (ngSubmit)="onClickSubmit(createSupplierForm)">
               <div class="form-group row py-1">
                 <div class="col">
                   <label for="supplierCode">Supplier Code(Unique)</label>

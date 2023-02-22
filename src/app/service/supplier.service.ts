@@ -12,7 +12,15 @@ export class SupplierService {
 
     constructor(private http: HttpClient) { }
 
-    public registerSupplier(supplier: SupplierDto): Observable<any> {
+    public registerSupplier(supplier: SupplierDto): Observable<SupplierDto> {
         return this.http.post<SupplierDto>(this.rootUrl + '/register', supplier);
+    }
+
+    public loginSupplier(supplierLoginDetails: any): Observable<Boolean> {
+        return this.http.post<Boolean>(this.rootUrl + '/login', supplierLoginDetails);
+    }
+
+    public getAllSuppliers(): Observable<SupplierDto[]> {
+        return this.http.get<SupplierDto[]>(this.rootUrl);
     }
 }

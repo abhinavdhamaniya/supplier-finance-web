@@ -1,0 +1,50 @@
+<html>
+
+<body>
+    <div class="row">
+        <div class="col">
+            <div class="card my-4">
+                <div class="card-body">
+                    <h5 class="card-title">Suppliers List</h5>
+                    <p class="card-text">Here is the list of all suppliers available in the system: </p>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Supplier code</th>
+                                <th>Password</th>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Country</th>
+                                <th>State</th>
+                                <th>City</th>
+                                <th>Province</th>
+                                <th>Email</th>
+                                <th>Mobile Number</th>
+                                <th>Credit Account Number</th>
+                                <th>Credit Information</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let supplier of suppliers">
+                                <td>{{ supplier.supplierCode }}</td>
+                                <td>{{ supplier.password }}</td>
+                                <td>{{ supplier.name }}</td>
+                                <td>{{ supplier.address }}</td>
+                                <td>{{ supplier.country }}</td>
+                                <td>{{ supplier.state }}</td>
+                                <td>{{ supplier.city }}</td>
+                                <td>{{ supplier.province }}</td>
+                                <td>{{ supplier.email }}</td>
+                                <td>{{ supplier.mobileNumber }}</td>
+                                <td>{{ supplier.creditAccountNumber }}</td>
+                                <td>{{ supplier.creditInformation }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -11,10 +11,17 @@
       <div class="collapse navbar-collapse" id="main_nav">
 
         <!--Welcome Navbar-->
-        <ul class="navbar-nav">
+        <ul class="navbar-nav"  *ngIf="loggedInUserType!='CLIENT' && loggedInUserType!='SUPPLIER'">
           <li><a class='nav-link' routerLinkActive='active' routerLink='welcome'>Welcome</a></li>
           <li><a class='nav-link' routerLinkActive='active' routerLink='/user-registration'>User Registration</a></li>
           <li><a class='nav-link' routerLinkActive='active' routerLink='/user-login'>User Login</a></li>
+        </ul>
+
+        <ul class="navbar-nav"  *ngIf="loggedInUserType=='CLIENT' || loggedInUserType=='SUPPLIER'">
+          <li><a class='nav-link' routerLinkActive='active' routerLink='user-homepage'>Welcome {{ loggedInUser }}</a></li>
+          <li><a class='nav-link' routerLinkActive='active' routerLink='user-view-all-clients'>Clients</a></li>
+          <li><a class='nav-link' routerLinkActive='active' routerLink='user-view-all-suppliers'>Suppliers</a></li>
+          <li><a class='nav-link' href="#" (click)='logout()'>Logout</a></li>
         </ul>
 
       </div>

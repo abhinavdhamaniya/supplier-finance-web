@@ -9,13 +9,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserHomepageComponent } from './user-homepage/user-homepage.component';
+import { UserViewAllClientsComponent } from './user-view-all-clients/user-view-all-clients.component';
+import { UserViewAllSuppliersComponent } from './user-view-all-suppliers/user-view-all-suppliers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     UserRegistrationComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    UserHomepageComponent,
+    UserViewAllClientsComponent,
+    UserViewAllSuppliersComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +31,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule.forRoot([
       { path: 'welcome', component: WelcomeComponent },
       { path: 'user-registration', component: UserRegistrationComponent },
-      { path: 'user-login', component: UserLoginComponent }
+      { path: 'user-login', component: UserLoginComponent },
+      { path: 'user-homepage', component: UserHomepageComponent },
+      { path: 'user-view-all-clients', component: UserViewAllClientsComponent },
+      { path: 'user-view-all-suppliers', component: UserViewAllSuppliersComponent }
     ]),
     NgbModule
   ],

@@ -1,0 +1,74 @@
+<html>
+
+<body>
+    <div class="row">
+        <div class="col-sm-6 offset-md-3">
+            <div class="card my-4">
+                <div class="card-body">
+                    <h5 class="card-title">Welcome {{ loggedInUser }}!</h5>
+                    <p class="card-text">You are logged in as a client. Here are your details: </p>
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Field</th>
+                            <th>Value</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Username</td>
+                            <td>{{client?.username}}</td>
+                          </tr>
+                          <tr>
+                            <td>Password</td>
+                            <td>{{client?.password}}</td>
+                          </tr>
+                          <tr>
+                            <td>Name</td>
+                            <td>{{client?.name}}</td>
+                          </tr>
+                          <tr>
+                            <td>Address</td>
+                            <td>{{client?.address}}</td>
+                          </tr>
+                          <tr>
+                            <td>Country</td>
+                            <td>{{client?.country}}</td>
+                          </tr>
+                          <tr>
+                            <td>State</td>
+                            <td>{{client?.state}}</td>
+                          </tr>
+                          <tr>
+                            <td>City</td>
+                            <td>{{client?.city}}</td>
+                          </tr>
+                          <tr>
+                            <td>Province</td>
+                            <td>{{client?.province}}</td>
+                          </tr>
+                          <tr>
+                            <td>Email</td>
+                            <td>{{client?.email}}</td>
+                          </tr>
+                          <tr>
+                            <td>Mobile Number</td>
+                            <td>{{client?.mobileNumber}}</td>
+                          </tr>
+                          <tr>
+                            <td>Loan Account Number</td>
+                            <td>{{client?.loanAccountNumber}}</td>
+                          </tr>
+                          <tr>
+                            <td>Loan Information</td>
+                            <td>{{client?.loanInformation}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

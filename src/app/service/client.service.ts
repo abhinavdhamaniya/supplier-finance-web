@@ -12,7 +12,19 @@ export class ClientService {
 
     constructor(private http: HttpClient) { }
 
-    public registerClient(client: ClientDto): Observable<any> {
+    public registerClient(client: ClientDto): Observable<ClientDto> {
         return this.http.post<ClientDto>(this.rootUrl + '/register', client);
+    }
+
+    public loginClient(clientLoginDetails: any): Observable<Boolean> {
+        return this.http.post<Boolean>(this.rootUrl + '/login', clientLoginDetails);
+    }
+
+    public getClientByUsername(username: string): Observable<ClientDto> {
+        return this.http.get<ClientDto>(this.rootUrl + '/' + username);
+    }
+
+    public getAllClients(): Observable<ClientDto[]> {
+        return this.http.get<ClientDto[]>(this.rootUrl);
     }
 }

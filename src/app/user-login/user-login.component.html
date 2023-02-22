@@ -1,1 +1,94 @@
-<p>user-login works!</p>
+<html>
+<body>
+    <div class="row mt-4 offset-md-3">
+        <div class="col-sm-6 ">
+            <h4>Login as a: </h4>
+        </div>
+        <div class="col-sm-6" (change)="errorMessage=null; sucessMessage=null;">
+            <div class="btn-group">
+                <input type="radio" class="btn-check" name="client" id="client" value="client" autocomplete="off"
+                    [(ngModel)]="userType" checked />
+                <label class="btn btn-primary" for="client">Client</label>
+                <input type="radio" class="btn-check" name="supplier" id="supplier" value="supplier" autocomplete="off"
+                    [(ngModel)]="userType" />
+                <label class="btn btn-primary" for="supplier">Supplier</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 offset-md-3">
+            <div class="card my-4" *ngIf="userType=='client'">
+                <div class="card-body">
+                    <h5 class="card-title">Client Login</h5>
+                    <p class="card-text">Login into the system as a client.</p>
+                    <div>
+                        <div class="alert alert-danger" role="alert" *ngIf='errorMessage'>
+                            {{errorMessage}}
+                        </div>
+                        <div class="alert alert-success" role="alert" *ngIf='sucessMessage'>
+                            {{sucessMessage | json}}
+                        </div>
+                        <form #loginClientForm="ngForm" (ngSubmit)="onClickSubmit(loginClientForm)">
+                            <div class="form-group row py-1">
+                                <div class="col">
+                                    <label for="username">User Name</label>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name="username"
+                                        placeholder="Enter user name" ngModel>
+                                </div>
+                            </div>
+                            <div class="form-group row py-1">
+                                <div class="col">
+                                    <label for="password">Password</label>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name="password" placeholder="Enter Password"
+                                        ngModel>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary py-1 mt-2">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card my-4" *ngIf="userType=='supplier'">
+                <div class="card-body">
+                    <h5 class="card-title">Supplier Login</h5>
+                    <p class="card-text">Login into the system as a supplier.</p>
+                    <div>
+                        <div class="alert alert-danger" role="alert" *ngIf='errorMessage'>
+                            {{errorMessage}}
+                        </div>
+                        <div class="alert alert-success" role="alert" *ngIf='sucessMessage'>
+                            {{sucessMessage | json}}
+                        </div>
+                        <form #loginSupplierForm="ngForm" (ngSubmit)="onClickSubmit(loginSupplierForm)">
+                            <div class="form-group row py-1">
+                                <div class="col">
+                                    <label for="supplierCode">Supplier Code</label>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name="supplierCode"
+                                        placeholder="Enter supplier code" ngModel>
+                                </div>
+                            </div>
+                            <div class="form-group row py-1">
+                                <div class="col">
+                                    <label for="password">Password</label>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name="password" placeholder="Enter Password"
+                                        ngModel>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary py-1 mt-2">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
