@@ -13,6 +13,8 @@ import { UserHomepageComponent } from './user-homepage/user-homepage.component';
 import { UserViewAllClientsComponent } from './user-view-all-clients/user-view-all-clients.component';
 import { UserViewAllSuppliersComponent } from './user-view-all-suppliers/user-view-all-suppliers.component';
 import { UserUploadInvoiceComponent } from './user-upload-invoice/user-upload-invoice.component';
+import { ClientViewInvoiceComponent } from './client-view-invoice/client-view-invoice.component';
+import { SupplierViewInvoiceComponent } from './supplier-view-invoice/supplier-view-invoice.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { UserUploadInvoiceComponent } from './user-upload-invoice/user-upload-in
     UserHomepageComponent,
     UserViewAllClientsComponent,
     UserViewAllSuppliersComponent,
-    UserUploadInvoiceComponent
+    UserUploadInvoiceComponent,
+    ClientViewInvoiceComponent,
+    SupplierViewInvoiceComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,9 @@ import { UserUploadInvoiceComponent } from './user-upload-invoice/user-upload-in
       { path: 'user-homepage', component: UserHomepageComponent },
       { path: 'user-view-all-clients', component: UserViewAllClientsComponent },
       { path: 'user-view-all-suppliers', component: UserViewAllSuppliersComponent },
-      { path: 'user-upload-invoice', component: UserUploadInvoiceComponent }
+      { path: 'user-upload-invoice', component: UserUploadInvoiceComponent },
+      { path: 'client-view-invoice', component: ClientViewInvoiceComponent },
+      { path: 'supplier-view-invoice', component: SupplierViewInvoiceComponent }
     ]),
     NgbModule
   ],

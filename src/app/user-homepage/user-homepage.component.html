@@ -6,8 +6,8 @@
             <div class="card my-4">
                 <div class="card-body">
                     <h5 class="card-title">Welcome {{ loggedInUser }}!</h5>
-                    <p class="card-text">You are logged in as a client. Here are your details: </p>
-                    <table class="table table-bordered">
+                    <p class="card-text">You are logged in as a {{ loggedInUserType }}. Here are your details: </p>
+                    <table class="table table-bordered" *ngIf="loggedInUserType=='CLIENT'">
                         <thead>
                           <tr>
                             <th>Field</th>
@@ -62,6 +62,64 @@
                           <tr>
                             <td>Loan Information</td>
                             <td>{{client?.loanInformation}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table class="table table-bordered" *ngIf="loggedInUserType=='SUPPLIER'">
+                        <thead>
+                          <tr>
+                            <th>Field</th>
+                            <th>Value</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Supplier Code</td>
+                            <td>{{supplier?.supplierCode}}</td>
+                          </tr>
+                          <tr>
+                            <td>Password</td>
+                            <td>{{supplier?.password}}</td>
+                          </tr>
+                          <tr>
+                            <td>Name</td>
+                            <td>{{supplier?.name}}</td>
+                          </tr>
+                          <tr>
+                            <td>Address</td>
+                            <td>{{supplier?.address}}</td>
+                          </tr>
+                          <tr>
+                            <td>Country</td>
+                            <td>{{supplier?.country}}</td>
+                          </tr>
+                          <tr>
+                            <td>State</td>
+                            <td>{{supplier?.state}}</td>
+                          </tr>
+                          <tr>
+                            <td>City</td>
+                            <td>{{supplier?.city}}</td>
+                          </tr>
+                          <tr>
+                            <td>Province</td>
+                            <td>{{supplier?.province}}</td>
+                          </tr>
+                          <tr>
+                            <td>Email</td>
+                            <td>{{supplier?.email}}</td>
+                          </tr>
+                          <tr>
+                            <td>Mobile Number</td>
+                            <td>{{supplier?.mobileNumber}}</td>
+                          </tr>
+                          <tr>
+                            <td>Credit Account Number</td>
+                            <td>{{supplier?.creditAccountNumber}}</td>
+                          </tr>
+                          <tr>
+                            <td>Credit Information</td>
+                            <td>{{supplier?.creditInformation}}</td>
                           </tr>
                         </tbody>
                       </table>

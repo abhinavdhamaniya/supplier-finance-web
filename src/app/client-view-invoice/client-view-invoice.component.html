@@ -1,0 +1,44 @@
+<html>
+
+<body>
+    <div class="row">
+        <div class="col">
+            <div class="card my-4">
+                <div class="card-body">
+                    <h5 class="card-title">Invoice List</h5>
+                    <p class="card-text">Here is the list of all your invoices: </p>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Invoice Id</th>
+                                <th>Client Username</th>
+                                <th>Supplier Code</th>
+                                <th>Invoice Number</th>
+                                <th>Invoice Date</th>
+                                <th>Invoice Amount</th>
+                                <th>Currency</th>
+                                <th>Status</th>
+                                <th>InvoiceFile</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let invoice of invoices">
+                                <td>{{ invoice.id }}</td>
+                                <td>{{ invoice.clientUsername }}</td>
+                                <td>{{ invoice.supplierCode }}</td>
+                                <td>{{ invoice.invoiceNumber }}</td>
+                                <td>{{ invoice.invoiceDate }}</td>
+                                <td>{{ invoice.invoiceAmount }}</td>
+                                <td>{{ invoice.currency }}</td>
+                                <td>{{ invoice.status }}</td>
+                                <td>{{ invoice.invoiceFile }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

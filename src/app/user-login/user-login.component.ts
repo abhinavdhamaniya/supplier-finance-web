@@ -57,6 +57,7 @@ export class UserLoginComponent {
             this.errorMessage = null;
             localStorage.setItem('LOGGED_IN_USER_TYPE', "SUPPLIER");
             localStorage.setItem('LOGGED_IN_USER_ID', supplierLoginDetails.supplierCode);
+            this.router.navigate(['user-homepage'])
           }
         },
         error: (err: any) => {

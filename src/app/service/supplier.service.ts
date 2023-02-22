@@ -20,6 +20,10 @@ export class SupplierService {
         return this.http.post<Boolean>(this.rootUrl + '/login', supplierLoginDetails);
     }
 
+    public getSupplierByCode(supplierCode: string): Observable<SupplierDto> {
+        return this.http.get<SupplierDto>(this.rootUrl + '/' + supplierCode);
+    }
+
     public getAllSuppliers(): Observable<SupplierDto[]> {
         return this.http.get<SupplierDto[]>(this.rootUrl);
     }

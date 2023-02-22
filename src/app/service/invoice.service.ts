@@ -15,4 +15,12 @@ export class InvoiceService {
     public saveInvoice(invoice: InvoiceDto): Observable<InvoiceDto> {
         return this.http.post<InvoiceDto>(this.rootUrl + '/save', invoice);
     }
+
+    public getAllInvoicesByClientUsername(clientUsername: string): Observable<InvoiceDto[]> {
+        return this.http.get<InvoiceDto[]>(this.rootUrl + '/clientUsername/' + clientUsername);
+    }
+
+    public getAllInvoices(): Observable<InvoiceDto[]> {
+        return this.http.get<InvoiceDto[]>(this.rootUrl);
+    }
 }
