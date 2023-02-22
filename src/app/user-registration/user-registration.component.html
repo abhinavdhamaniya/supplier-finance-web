@@ -5,7 +5,7 @@
     <div class="col-sm-6 ">
       <h4>Register as a: </h4>
     </div>
-    <div class="col-sm-6 ">
+    <div class="col-sm-6" (change)="errorMessage=null; sucessMessage=null;">
       <div class="btn-group">
         <input type="radio" class="btn-check" name="client" id="client" value="client" autocomplete="off"
           [(ngModel)]="userType" checked />
@@ -148,6 +148,140 @@
           </div>
         </div>
       </div>
+
+
+      <div class="card my-4" *ngIf="userType=='supplier'">
+        <div class="card-body">
+          <h5 class="card-title">Supplier Registration</h5>
+          <p class="card-text">Register into the system as a supplier.</p>
+          <div>
+            <div class="alert alert-danger" role="alert" *ngIf='errorMessage'>
+              {{errorMessage}}
+            </div>
+            <div class="alert alert-success" role="alert" *ngIf='sucessMessage'>
+              {{sucessMessage | json}}
+            </div>
+            <form #createClientForm="ngForm" (ngSubmit)="onClickSubmit(createClientForm)">
+              <div class="form-group row py-1">
+                <div class="col">
+                  <label for="supplierCode">Supplier Code(Unique)</label>
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" name="supplierCode" placeholder="Enter a unique supplier code"
+                    ngModel>
+                </div>
+              </div>
+              <div class="form-group row py-1">
+                <div class="col">
+                  <label for="password">Password</label>
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" name="password" placeholder="Enter Password" ngModel>
+                </div>
+              </div>
+              <div class="form-group row py-1">
+                <div class="col">
+                  <label for="name">Name</label>
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" name="name" placeholder="Enter your name" ngModel>
+                </div>
+              </div>
+              <div class="form-group row py-1">
+                <div class="col">
+                  <label for="address">Address</label>
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" name="address" placeholder="Enter your address" ngModel>
+                </div>
+              </div>
+              <div class="form-group row py-1">
+                <div class="col">
+                  <label for="address">Country</label>
+                </div>
+                <div class="col">
+                  <select id="country" name="country" (click)="setCountry($event)">
+                    <option value="India">India</option>
+                    <option value="Pakistan">Pakistan</option>
+                    <option value="USA">USA</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row py-1">
+                <div class="col">
+                  <label for="address">State</label>
+                </div>
+                <div class="col">
+                  <select id="state" name="state" (click)="setState($event)">
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Haryana">Haryana</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row py-1">
+                <div class="col">
+                  <label for="address">City</label>
+                </div>
+                <div class="col">
+                  <select id="city" name="city" (click)="setCity($event)">
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Mysore">Mysore</option>
+                    <option value="Coorg">Coorg</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row py-1">
+                <div class="col">
+                  <label for="address">Province</label>
+                </div>
+                <div class="col">
+                  <select id="province" name="province" (click)="setProvince($event)">
+                    <option value="Koramangla">Koramangla</option>
+                    <option value="HSR Layout">HSR Layout</option>
+                    <option value="Whitefield">Whitefield</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row py-1">
+                <div class="col">
+                  <label for="email">Email</label>
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" name="email" placeholder="Enter Email" ngModel>
+                </div>
+              </div>
+              <div class="form-group row py-1">
+                <div class="col">
+                  <label for="mobileNumber">Mobile Number</label>
+                </div>
+                <div class="col">
+                  <input type="number" class="form-control" name="mobileNumber" placeholder="Enter Mobile Number" ngModel>
+                </div>
+              </div>
+              <div class="form-group row py-1">
+                <div class="col">
+                  <label for="creditAccountNumber">Credit Account Number</label>
+                </div>
+                <div class="col">
+                  <input type="number" class="form-control" name="creditAccountNumber" placeholder="Enter Credit Account Number" ngModel>
+                </div>
+              </div>
+              <div class="form-group row py-1">
+                <div class="col">
+                  <label for="creditInformation">Credit Information</label>
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" name="creditInformation" placeholder="Enter Credit Information" ngModel>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary py-1 mt-2">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
     </div>
   </div>
 </body>
