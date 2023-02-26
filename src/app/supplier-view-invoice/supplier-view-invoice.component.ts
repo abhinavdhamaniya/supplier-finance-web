@@ -13,7 +13,7 @@ export class SupplierViewInvoiceComponent implements OnInit {
   sub!: Subscription;
   loggedInUser: string = localStorage.getItem('LOGGED_IN_USER_ID')!;
   invoices: InvoiceDto[] = [];
-  filter: string | null = null;
+  filter: string = 'CLIENT_USER_NAME';
   filterValue: string | null = null;
 
   constructor(private invoiceService: InvoiceService) { }
@@ -66,4 +66,12 @@ export class SupplierViewInvoiceComponent implements OnInit {
     }
   }
 
+  updateInvoiceStatus(status: string, invoiceId: string) {
+    console.log(invoiceId);
+    this.sub = this.invoiceService.updateInvoiceStatus(status, invoiceId).subscribe({
+      next: () => {
+        this.doFilter();
+      }
+    });
+  }
 }

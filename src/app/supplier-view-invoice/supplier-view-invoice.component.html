@@ -46,8 +46,11 @@
                                 <td>{{ invoice.invoiceAmount }}</td>
                                 <td>{{ invoice.currency }}</td>
                                 <td>{{ invoice.invoiceFile }}</td>
-                                <td>{{ invoice.status }}</td>
-                                <td>Buttons</td>
+                                <td [ngClass]="{'table-success' : invoice.status === 'APPROVED', 'table-danger' : invoice.status === 'REJECTED', 'table-warning' : invoice.status === 'AWAITING'}">{{ invoice.status }}</td>
+                                <td>
+                                    <button type="button" [disabled]="invoice.supplierCode != loggedInUser" class="btn btn-success mx-2" (click)="updateInvoiceStatus('APPROVED', invoice.id)">Approve</button>
+                                    <button type="button" [disabled]="invoice.supplierCode != loggedInUser" class="btn btn-danger mx-2" (click)="updateInvoiceStatus('REJECTED', invoice.id)">Reject</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

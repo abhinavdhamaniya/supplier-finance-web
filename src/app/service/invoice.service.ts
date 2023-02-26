@@ -31,4 +31,8 @@ export class InvoiceService {
     public getAllInvoices(): Observable<InvoiceDto[]> {
         return this.http.get<InvoiceDto[]>(this.rootUrl);
     }
+
+    public updateInvoiceStatus(status: string, invoiceId: string): Observable<InvoiceDto> {
+        return this.http.get<InvoiceDto>(this.rootUrl+ '/update/' + invoiceId + '?status=' + status);
+    }
 }
