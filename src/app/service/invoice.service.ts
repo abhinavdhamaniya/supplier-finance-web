@@ -16,6 +16,12 @@ export class InvoiceService {
         return this.http.post<InvoiceDto>(this.rootUrl + '/save', invoice);
     }
 
+    public uploadInvoiceFile(invoiceFile: File, invoiceId: string): Observable<any> {
+        const formData: FormData = new FormData();
+        formData.append('invoiceFile', invoiceFile);
+        return this.http.post<any>(this.rootUrl + '/upload-invoice/' + invoiceId, formData);
+    }
+
     public getInvoiceById(id: string): Observable<InvoiceDto[]> {
         return this.http.get<InvoiceDto[]>(this.rootUrl + '/' + id);
     }

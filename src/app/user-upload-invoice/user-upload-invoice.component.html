@@ -93,8 +93,7 @@
                                 <label for="invoiceFile">Invoice File</label>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="invoiceFile"
-                                    placeholder="Enter Invoice File" ngModel>
+                                <input class="form-control" type="file" id="invoiceFile" (change)="onFileChange($event)">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary py-1 mt-2">Submit</button>

@@ -31,7 +31,7 @@
                                 <td>{{ invoice.invoiceAmount }}</td>
                                 <td>{{ invoice.currency }}</td>
                                 <td [ngClass]="{'table-success' : invoice.status === 'APPROVED', 'table-danger' : invoice.status === 'REJECTED', 'table-warning' : invoice.status === 'AWAITING'}">{{ invoice.status }}</td>
-                                <td>{{ invoice.invoiceFile }}</td>
+                                <td><button (click)="test()"><span>Download File {{ invoice.invoiceFile }}</span></button></td>
                             </tr>
                         </tbody>
                     </table>

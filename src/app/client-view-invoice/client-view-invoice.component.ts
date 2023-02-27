@@ -26,4 +26,8 @@ export class ClientViewInvoiceComponent implements OnInit {
       }
     });
   }
+
+  test() {
+    console.log(this.invoices);
+  }
 }

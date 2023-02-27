@@ -18,6 +18,7 @@ export class UserUploadInvoiceComponent implements OnInit {
 
   currency: string = 'USD';
   invoiceStatus = 'AWAITING';
+  invoiceFile: File | null = null;
 
   constructor(private invoiceService: InvoiceService) { }
 
@@ -33,8 +34,17 @@ export class UserUploadInvoiceComponent implements OnInit {
     var invoice = this.buildInvoice(uploadInvoiceForm);
     console.log(invoice);
     this.sub = this.invoiceService.saveInvoice(invoice).subscribe({
-      next: (response: any) => {
-        this.sucessMessage = 'Invoice Saved!'
+      next: (response: InvoiceDto) => {
+        if (this.invoiceFile) {
+          this.sub = this.invoiceService.uploadInvoiceFile(this.invoiceFile, response.id).subscribe({
+            next: (response: any) => {
+              this.sucessMessage = 'Invoice Saved!'
+            },
+            error: (err: any) => {
+              this.errorMessage = 'Error occured while uploading invoice file!';
+            }
+          });
+        }
       },
       error: (err: any) => {
         this.errorMessage = err.error.errors;
@@ -48,6 +58,12 @@ export class UserUploadInvoiceComponent implements OnInit {
     }
   }
 
+  onFileChange(event: Event) {
+    if(event.target) {
+      this.invoiceFile = (event.target as HTMLFormElement).files[0];
+    }
+  }   
+
   private buildInvoice(uploadInvoiceForm: NgForm): InvoiceDto {
     var invoice: InvoiceDto = new InvoiceDto();
     var invoiceDetails = uploadInvoiceForm.value;
@@ -59,7 +75,7 @@ export class UserUploadInvoiceComponent implements OnInit {
     invoice.invoiceAmount = invoiceDetails.invoiceAmount;
     invoice.currency = this.currency;
     invoice.status = this.invoiceStatus;
-    invoice.invoiceFile = invoiceDetails.invoiceFile;
+    invoice.invoiceFile = null;
     return invoice;
   }
 }
