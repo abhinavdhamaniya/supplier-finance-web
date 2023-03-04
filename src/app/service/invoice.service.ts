@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { InvoiceDto } from "../dto/InvoiceDto";
+import { map } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -39,6 +40,6 @@ export class InvoiceService {
     }
 
     public updateInvoiceStatus(status: string, invoiceId: string): Observable<InvoiceDto> {
-        return this.http.get<InvoiceDto>(this.rootUrl+ '/update/' + invoiceId + '?status=' + status);
+        return this.http.get<InvoiceDto>(this.rootUrl + '/update/' + invoiceId + '?status=' + status);
     }
 }

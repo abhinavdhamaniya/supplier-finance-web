@@ -27,7 +27,12 @@ export class ClientViewInvoiceComponent implements OnInit {
     });
   }
 
-  test() {
-    console.log(this.invoices);
+  downloadFile(invoiceFile: File | null): void {
+    if(invoiceFile) {
+        const downloadLink = document.createElement('a');
+        downloadLink.href = URL.createObjectURL(invoiceFile);
+        downloadLink.download = invoiceFile.name;
+        downloadLink.click();
+    }
   }
 }
