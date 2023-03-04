@@ -8,7 +8,7 @@ import { SupplierDto } from "../dto/SupplierDto";
 })
 export class SupplierService {
 
-    private rootUrl = 'http://localhost:8080/suppliers';
+    private rootUrl = 'http://localhost:8081/suppliers';
 
     constructor(private http: HttpClient) { }
 

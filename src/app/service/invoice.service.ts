@@ -8,7 +8,7 @@ import { InvoiceDto } from "../dto/InvoiceDto";
 })
 export class InvoiceService {
 
-    private rootUrl = 'http://localhost:8080/invoices';
+    private rootUrl = 'http://localhost:8081/invoices';
 
     constructor(private http: HttpClient) { }
 

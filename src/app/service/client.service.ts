@@ -8,7 +8,7 @@ import { ClientDto } from "../dto/ClientDto";
 })
 export class ClientService {
 
-    private rootUrl = 'http://localhost:8080/clients';
+    private rootUrl = 'http://localhost:8081/clients';
 
     constructor(private http: HttpClient) { }
 
